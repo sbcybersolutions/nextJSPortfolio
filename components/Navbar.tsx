@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b bg-white/70 backdrop-blur dark:bg-neutral-950/70">
       <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         {/* Logo / Name */}
-        <span className="font-semibold">YourName</span>
+        <span className="font-semibold">Christian Salafia</span>
 
         {/* Links + Theme toggle */}
         <div className="flex items-center gap-6">
