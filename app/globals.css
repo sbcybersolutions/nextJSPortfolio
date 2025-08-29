@@ -1,12 +1,29 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-primary: #260c40;
+  --color-accent: #f26f63;
+  --color-success: #63732c;
+  --color-neutral: #f2f2f0;
+  --color-warn: #8c442a;
+}
+
+/* Map CSS vars to Tailwind-friendly families */
 @layer base {
+  :root {
+    --font-sans: var(--font-sans), system-ui, sans-serif;
+    --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo,
+      monospace;
+  }
+
   html {
-    @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
+    @apply transition-colors duration-300;
   }
   body {
-    @apply min-h-screen antialiased;
+    @apply min-h-screen;
   }
 }
+
+/* Optional utility if you need mono text somewhere */
+/* .font-mono is already provided by Tailwind, but now uses your var */

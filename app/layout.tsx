@@ -1,11 +1,21 @@
-// app/layout.tsx
-import type { Metadata } from "next";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Inter, Fira_Code } from "next/font/google";
 import Providers from "./providers";
-import Navbar from "@/components/Navbar";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Christian Salafia – Portfolio",
+  title: "Christian Salafia - Portfolio",
   description: "Full-stack developer & cybersecurity GRC practitioner.",
 };
 
@@ -15,12 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 antialiased">
-        <Providers>
-          <Navbar />
-          {children}
-        </Providers>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${firaCode.variable}`}
+    >
+      <body className="font-sans bg-neutral text-primary dark:bg-primary dark:text-neutral antialiased">
+        {/* Providers MUST be here, wrapping ALL routes */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
